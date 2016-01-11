@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input class="name">
+<p>{{name}}{{fname}}{% for i in range(3) %}{% end block %}</p>
+<button id="click">Click</button>
+
+</body>
+<script type="text/javascript">
+    $('#click').click(function (e) {
+        var name = $('.name').val();
+
+        $.ajax(
+                {
+                    url: '/test',
+                    type: "POST",
+                    data: {name: name},
+
+                    success: function (data) {
+						alert(data)
+                    },
+
+                    error: function () {
+
+                        alert('error');
+                    }
+                });
+    });
+
+        </script>
+
+</html>
